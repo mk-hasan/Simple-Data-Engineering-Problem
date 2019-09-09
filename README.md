@@ -1,5 +1,4 @@
-# Merantix Engineering Assignment
-Assignment for Merantix Software and Data Engineers.
+# Data Engineer Software company assessment task
 
 ## Base task
 Given a list of integers, find the consecutive, non-empty subsequence with the highest _sum_.
