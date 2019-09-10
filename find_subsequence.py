@@ -12,7 +12,7 @@ def find_subsequence1(input_data,input_size,n1):
             for k in range(i,j+1): # get the subsequences
                 subseq_list.append(input_data[k]) 
             if(len(subseq_list)<=n1):  # check the length of subsequences
-                if(args.values is not None): # check the input  of values, if values given then calculate _sum_ of the values
+                if(args.units == "values"): # check the input  of values, if values given then calculate _sum_ of the values
                     sum_data = sum(subseq_list) 
                 else: # else calcualte the  _sum_ of the absolute values
                     for ii in range(len(subseq_list)-1):
@@ -46,15 +46,14 @@ if __name__== "__main__":
     parser = argparse.ArgumentParser()
 
     # argparse receiving list of input data and parameter (e.g., python main)
-    parser.add_argument('--values',type=int,help="give how at most how many values to consider for   summation")
-    parser.add_argument('--differences',type=int,help="give the differences for calculating the highest sum ")
+    parser.add_argument('integers',type=int,action="store",help="give the integer value for values or differences")
+    parser.add_argument('units',action="store",help="unit is values or differences")
     parser.add_argument('--input-filepath',help="give the input txt file")
     args = parser.parse_args()
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     INPUT_PATH = os.path.join(os.getcwd(), 'data', args.input_filepath)
-    n1 = args.differences
-    n2= args.values
+    n1 = args.integers
     listdata =[]
 # read the input path and parse the data  with space
     with open(INPUT_PATH,'r') as f:
