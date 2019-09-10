@@ -45,14 +45,15 @@ if __name__== "__main__":
 #init argument parser for taking argument from user
     parser = argparse.ArgumentParser()
 
+    parser.add_argument('input',action="store",help="give the input txt file")
     # argparse receiving list of input data and parameter (e.g., python main)
     parser.add_argument('integers',type=int,action="store",help="give the integer value for values or differences")
     parser.add_argument('units',action="store",help="unit is values or differences")
-    parser.add_argument('--input-filepath',help="give the input txt file")
+    
     args = parser.parse_args()
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-    INPUT_PATH = os.path.join(os.getcwd(), 'data', args.input_filepath)
+    INPUT_PATH = os.path.join(os.getcwd(), 'data', args.input)
     n1 = args.integers
     listdata =[]
 # read the input path and parse the data  with space
